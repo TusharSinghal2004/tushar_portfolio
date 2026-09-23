@@ -1,0 +1,241 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.25rem 0;
+  z-index: 100;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: rgba(244, 243, 240, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 0.75rem 0;
+}
+
+[data-theme="dark"] .header.scrolled {
+  background-color: rgba(18, 18, 18, 0.85);
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--text-primary);
+  border-radius: 50%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logo:hover .logo-text {
+  background-color: var(--text-primary);
+  color: var(--bg-color);
+}
+
+/* Navigation */
+.nav-desktop {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+}
+
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1.5px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--text-primary);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Energy Pill */
+.energy-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.04);
+  padding: 0.4rem 0.5rem 0.4rem 1rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.energy-pill:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .energy-pill {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .energy-pill:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.energy-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.energy-tag-parent {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.energy-tag {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: transparent;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.energy-tag.active {
+  background: var(--text-primary);
+  color: var(--bg-color);
+}
+
+/* Burger */
+.burger-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 110;
+}
+
+@media (min-width: 992px) {
+  .burger-menu {
+    display: none;
+  }
+}
+
+.burger-line {
+  width: 26px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.burger-line.open:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger-line.open:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-line.open:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-surface);
+  padding: 2rem 4vw 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.mobile-link {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-link:hover {
+  opacity: 0.6;
+}
+
+.mobile-energy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 1.125rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.theme-switch {
+  width: 44px;
+  height: 24px;
+  border-radius: 100px;
+  background-color: var(--border-color);
+  position: relative;
+  transition: background-color 0.3s ease;
+  padding: 2px;
+}
+
+.theme-switch.dark {
+  background-color: #34c759;
+}
+
+.switch-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.theme-switch.dark .switch-thumb {
+  transform: translateX(20px);
+}

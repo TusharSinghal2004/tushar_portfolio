@@ -1,0 +1,155 @@
+.about {
+  background-color: var(--bg-surface);
+}
+
+.section-title {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .about-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  .experience {
+    grid-row: span 2;
+  }
+}
+
+.glass-panel {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 1.25rem;
+  padding: 2.5rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.glass-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.panel-title {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.expertise-content {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.highlight-text {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.expertise-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.expertise-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.expertise-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+}
+
+.expertise-list strong {
+  color: var(--text-primary);
+}
+
+.job {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.job:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.job-header {
+  margin-bottom: 0.75rem;
+}
+
+.job-header h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
+}
+
+.company {
+  display: block;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.date {
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.skills-category {
+  margin-bottom: 1.25rem;
+}
+
+.skills-category:last-child {
+  margin-bottom: 0;
+}
+
+.skills-category h5 {
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.skills-category p {
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+.edu-item h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
+}
+
+.cgpa {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
