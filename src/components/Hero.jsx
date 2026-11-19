@@ -1,55 +1,60 @@
 import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import './Hero.css';
 
 const Hero = () => {
-  const reduceMotion = useReducedMotion();
-  const reveal = (delay = 0) => ({
-    initial: { opacity: 0, y: reduceMotion ? 0 : 24 },
+  const fadeUp = (delay) => ({
+    initial: { opacity: 0, y: 40 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 1.25 + delay },
+    transition: { duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] },
+  });
+
+  const imgFade = (delay) => ({
+    initial: { opacity: 0, scale: 0.9 },
+    animate: { opacity: 1, scale: 1 },
+    transition: { duration: 1, delay, ease: [0.16, 1, 0.3, 1] },
   });
 
   return (
-    <section className="hero" aria-labelledby="hero-title">
+    <section className="hero">
       <div className="hero-container">
         <div className="hero-text-wrapper">
-          <motion.p className="hero-eyebrow" {...reveal()}>Tushar Singhal / Developer &amp; Designer</motion.p>
-          <motion.h1 id="hero-title" className="hero-title" {...reveal(0.1)}>
-            Websites with<br />
-            <span>purpose.</span><br />
-            Built for you.
+          <motion.h1 className="title-line" {...fadeUp(1.3)}>
+            I build websites
           </motion.h1>
-          <motion.p className="hero-slogan" {...reveal(0.2)}>
-            I turn your brand into a thoughtful digital experience — from distinctive storefronts to custom web applications.
+          <motion.h1 className="title-line text-fade stagger-1" {...fadeUp(1.45)}>
+            that are modern,
+          </motion.h1>
+          <motion.h1 className="title-line text-fade stagger-2" {...fadeUp(1.6)}>
+            and dynamic, to
+          </motion.h1>
+          <motion.h1 className="title-line text-fade stagger-3" {...fadeUp(1.75)}>
+            fit your brand
+          </motion.h1>
+          
+          <motion.p className="hero-slogan" {...fadeUp(2.0)}>
+            Full-Stack Developer &amp; Designer
           </motion.p>
-          <motion.div className="hero-actions" {...reveal(0.3)}>
+          <motion.div className="hero-actions" {...fadeUp(2.1)}>
             <a href="#projects" className="btn_pm">Explore my work</a>
-            <a href="#contact" className="hero-contact-link">Let's talk</a>
-          </motion.div>
-          <motion.div className="hero-specialties" {...reveal(0.4)}>
-            <span>Design &amp; development</span><span>E-commerce</span><span>React</span>
+            <a href="#contact" className="btn_sc">Let's talk</a>
           </motion.div>
         </div>
 
-        <motion.div className="hero-showcase" {...reveal(0.25)}>
-          <div className="hero-showcase-heading"><span>A few things I've built</span><a href="#projects">View projects</a></div>
-          <a className="hero-featured" href="https://aeromarus.com" target="_blank" rel="noreferrer" aria-label="Visit the Aeromar website">
-            <div className="hero-browser"><span className="hero-browser-dots" aria-hidden="true"><i /><i /><i /></span><span>aeromarus.com</span></div>
-            <img src="/images/aeromarus.png" alt="Aeromar global logistics website" width="1917" height="865" fetchPriority="high" />
-            <div className="hero-project-caption"><strong>Aeromar</strong><span>Corporate website</span></div>
-          </a>
-          <div className="hero-secondary-projects">
-            <a className="hero-project-small" href="https://jewelssphere.com" target="_blank" rel="noreferrer">
-              <img src="/images/jewelssphere.png" alt="Jewels Sphere gemstone storefront" width="1440" height="1000" />
-              <div className="hero-project-caption"><strong>Jewels Sphere</strong><span>E-commerce</span></div>
-            </a>
-            <a className="hero-project-small" href="https://priyancakhanna.com" target="_blank" rel="noreferrer">
-              <img src="/images/priyancakhanna.png" alt="Priyanca Khanna fashion storefront" width="1911" height="869" />
-              <div className="hero-project-caption"><strong>Priyanca Khanna</strong><span>Fashion</span></div>
-            </a>
-          </div>
-        </motion.div>
+        <div className="hero-image-grid">
+          <motion.div className="hero-img pos-1" {...imgFade(1.5)}>
+            <img src="/images/aeromarus.png" alt="Aeromar" />
+          </motion.div>
+          <motion.div className="hero-img pos-2" {...imgFade(1.7)}>
+            <img src="/images/desirelytics.png" alt="Desirelytics" />
+          </motion.div>
+          <motion.div className="hero-img pos-3" {...imgFade(1.9)}>
+            <img src="/images/jewelssphere.png" alt="Jewels Sphere website" />
+          </motion.div>
+          <motion.div className="hero-img pos-4" {...imgFade(2.1)}>
+            <img src="/images/priyancakhanna.png" alt="Priyanca Khanna" />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
