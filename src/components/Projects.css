@@ -172,3 +172,21 @@
   color: var(--bg-color);
   border-color: var(--text-primary);
 }
+
+/* Larger previews keep the actual websites legible. */
+@media (min-width: 1024px) {
+  .product-collection { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+}
+.product-card-model-viewer { aspect-ratio: auto; }
+.poster-parent { height: auto; aspect-ratio: 1440 / 1000; }
+.poster-src { object-fit: contain; }
+.product-card-parent:hover .poster-src { transform: scale(1.015); }
+.product-card-price-text, .product-card-info-left .btn_sc { font-size: 0.875rem; }
+.product-card-description p { font-size: 1rem; }
+.projects-intro { margin-top: 1.25rem; max-width: 38rem; }
+.project-browser-bar { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-secondary); font-size: 0.875rem; }
+.browser-controls { display: flex; gap: 0.3rem; }
+.browser-controls i { width: 7px; height: 7px; border-radius: 50%; background: var(--border-color); }
+.project-preview-pending { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.75rem; padding: 2rem; text-align: center; }
+.project-preview-pending strong { font-size: clamp(1.5rem, 3vw, 2.5rem); letter-spacing: -0.04em; }
+.project-preview-pending span { color: var(--text-secondary); font-size: 1rem; }

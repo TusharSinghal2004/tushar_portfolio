@@ -7,15 +7,15 @@ const projects = [
     industry: 'Food',
     name: 'Munch N Gut',
     url: 'munchngut.com',
-    image: '/images/munchngut_mockup_1789980943975.png',
+    image: null,
     description: 'Health and wellness food brand emphasizing organic visuals and a clean, modern layout.'
   },
   {
     industry: 'Jewellery',
-    name: 'Intl Gems Inc',
-    url: '#',
-    image: '/images/intlgems_mockup_1789982652525.png',
-    description: 'Luxurious and elegant e-commerce experience for a premium jewellery and diamond brand.'
+    name: 'Jewels Sphere',
+    url: 'jewelssphere.com',
+    image: '/images/jewelssphere.png',
+    description: 'A gemstone and jewellery storefront with a detailed, easy-to-explore product catalog.'
   },
   {
     industry: 'Fashion',
@@ -36,14 +36,21 @@ const projects = [
     name: 'Aeromar',
     url: 'aeromarus.com',
     image: '/images/aeromarus.png',
-    description: 'A premium informational React website for a modern tech company, built for high performance and sleek interactions.'
+    description: 'A corporate website presenting global logistics, procurement, and supply chain services.'
   },
   {
     industry: 'React',
     name: 'Desirelytics',
     url: 'desirelytics.com',
     image: '/images/desirelytics.png',
-    description: 'Informational analytics dashboard interface with a modern glassmorphism UI built in React.'
+    description: 'A digital marketing website presenting SEO services and an approach to organic growth.'
+  },
+  {
+    industry: 'Agency',
+    name: 'Digital Clicks Lucknow',
+    url: 'digitalclickslucknow.com',
+    image: '/images/digitalclickslucknow.png',
+    description: 'A digital agency website showcasing marketing services for businesses.'
   }
 ];
 
@@ -56,7 +63,7 @@ const fadeUp = (delay) => ({
 
 const Projects = () => {
   const [filter, setFilter] = useState('All');
-  const categories = ['All', 'Food', 'Jewellery', 'Fashion', 'React'];
+  const categories = ['All', 'Food', 'Jewellery', 'Fashion', 'React', 'Agency'];
   const filteredProjects = filter === 'All' ? projects : projects.filter(p => p.industry === filter);
 
   return (
@@ -72,6 +79,7 @@ const Projects = () => {
             >
               Selected Works
             </motion.h2>
+            <p className="projects-intro">A selection of storefronts and websites, built around each brand.</p>
           </div>
 
           <motion.div
@@ -83,6 +91,7 @@ const Projects = () => {
                 key={cat}
                 className={`filter-btn ${filter === cat ? 'active' : ''}`}
                 onClick={() => setFilter(cat)}
+                aria-pressed={filter === cat}
               >
                 {cat}
               </button>
@@ -104,8 +113,13 @@ const Projects = () => {
               >
                 <div className="product-card-parent">
                   <div className="product-card-model-viewer">
+                    <div className="project-browser-bar" aria-hidden="true"><span className="browser-controls"><i /><i /><i /></span><span>{project.url}</span></div>
                     <div className="poster-parent">
-                      <img src={project.image} alt={project.name} className="poster-src" />
+                      {project.image ? (
+                        <img src={project.image} alt={`${project.name} website screenshot`} className="poster-src" loading="lazy" decoding="async" width="1440" height="1000" />
+                      ) : (
+                        <div className="project-preview-pending"><strong>{project.name}</strong><span>Website preview coming soon</span></div>
+                      )}
                     </div>
                   </div>
                   <div className="product-card-info">

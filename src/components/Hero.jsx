@@ -35,6 +35,10 @@ const Hero = () => {
           <motion.p className="hero-slogan" {...fadeUp(2.0)}>
             Full-Stack Developer &amp; Designer
           </motion.p>
+          <motion.div className="hero-actions" {...fadeUp(2.1)}>
+            <a href="#projects" className="btn_pm">Explore my work</a>
+            <a href="#contact" className="btn_sc">Let's talk</a>
+          </motion.div>
         </div>
 
         <div className="hero-image-grid">
@@ -45,7 +49,7 @@ const Hero = () => {
             <img src="/images/desirelytics.png" alt="Desirelytics" />
           </motion.div>
           <motion.div className="hero-img pos-3" {...imgFade(1.9)}>
-            <img src="/images/ramoe_mockup_1789980701018.png" alt="Ramoe" />
+            <img src="/images/jewelssphere.png" alt="Jewels Sphere website" />
           </motion.div>
           <motion.div className="hero-img pos-4" {...imgFade(2.1)}>
             <img src="/images/priyancakhanna.png" alt="Priyanca Khanna" />
